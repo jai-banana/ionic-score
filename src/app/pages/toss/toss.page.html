@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Toss</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <div *ngFor="let st of selectedteams; let i = index" class="ion-text-center">
+      <p *ngIf="i == 0">{{st}}</p>
+      <p *ngIf="i == 0">Vs</p>
+      <p *ngIf="i == 1">{{st}}</p>
+    </div>
+  </div>
+</ion-content>
+
+<ion-content class="ion-padding-top">
+  <div class="ion-text-center">
+    <ion-button color="secondary">
+      TOSS
+    </ion-button>
+  </div>
+</ion-content> 

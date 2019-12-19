@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Select Teams</ion-title>
+    <ion-button slot="secondary" color="secondary" [disabled]="selectedteams.size < 2" (click)="selectionDone()">Ok</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button shape="round" size="large" class="addbtn">+</ion-button>
+  <div class="ion-padding">
+    <ion-list>
+      <ion-item *ngFor="let tl of teamslist" (click)="selectedTeam(tl.teamname)">
+        <ion-label>{{tl.teamname}}</ion-label>
+        <ng-container *ngFor="let st of selectedteams">
+          <span *ngIf="tl.teamname == st">
+            <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+          </span>
+        </ng-container>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
