@@ -9,18 +9,31 @@
 
 <ion-content>
   <div class="ion-padding">
-    <div *ngFor="let st of selectedteams; let i = index" class="ion-text-center">
-      <p *ngIf="i == 0">{{st}}</p>
-      <p *ngIf="i == 0">Vs</p>
-      <p *ngIf="i == 1">{{st}}</p>
+    <p>Select the Batting team</p>
+    <ion-select placeholder="Who is Batting? " (ionChange)="selectTeam($event.detail.value)">
+      <ion-select-option *ngFor="let st of selectedteams" [value]="st">{{st}}</ion-select-option>
+    </ion-select>
+  </div>
+
+  <div class="ion-padding" [hidden]="TeamNotSelectedYet">
+    <div>
+      <p>Select Opening Batsmen</p>
+      <ion-select multiple="true" cancelText="Cancel" okText="Done">
+        <ion-select-option value="bacon">Bacon</ion-select-option>
+      </ion-select>
+    </div>
+
+    <div>
+      <p>Select Opening Bowler</p>
+      <ion-select cancelText="Cancel" okText="Done">
+        <ion-select-option value="bacon">Bacon</ion-select-option>
+      </ion-select>
+    </div>
+
+    <div class="ion-text-center">
+      <ion-button color="primary" (click)="startMatch()">
+        Start Match
+      </ion-button>
     </div>
   </div>
 </ion-content>
-
-<ion-content class="ion-padding-top">
-  <div class="ion-text-center">
-    <ion-button color="secondary">
-      TOSS
-    </ion-button>
-  </div>
-</ion-content> 
